@@ -91,13 +91,13 @@ dialog::backdrop{background:rgba(3,3,6,.85)}
 (function(){
 var H=[1,2,3,4,5,6,7,8].map(function(n){return'hero-'+n+'.mp4'});
 var W=[
-{t:'Commentary edit',g:'Captions and overlays',p:'p-commentary.jpg',e:'commentary-edited.mp4',r:'commentary-raw.mp4'},
-{t:'Talking-head edit',g:'Long-form YouTube',p:'p-talking.jpg',e:'talking-edited.mp4',r:'talking-raw.mp4'},
-{t:'Minecraft gameplay edit',g:'Gaming edit',p:'p-minecraft.jpg',e:'minecraft-edited.mp4',r:'minecraft-raw.mp4'},
-{t:'Studio talking-head edit',g:'Long-form YouTube',p:'p-studio.jpg',e:'studio.mp4'},
-{t:'Vertical motion graphics',g:'Motion graphics',p:'p-motion.jpg',e:'motion.mp4'}];
+{t:'Gaming commentary',g:'',p:'p-commentary.jpg',e:'commentary-edited.mp4',r:'commentary-raw.mp4'},
+{t:'Roblox edit',g:'',p:'p-talking.jpg',e:'talking-edited.mp4',r:'talking-raw.mp4'},
+{t:'Minecraft edit',g:'',p:'p-minecraft.jpg',e:'minecraft-edited.mp4',r:'minecraft-raw.mp4'},
+{t:'Car game edit',g:'',p:'p-studio.jpg',e:'studio.mp4'},
+{t:'Motion graphics',g:'',p:'p-motion.jpg',e:'motion.mp4'}];
 var g=document.getElementById('grid');
-W.forEach(function(w,i){var b=document.createElement('button');b.className='card rv';b.innerHTML='<div class="th"><img src="'+w.p+'" alt="" loading="lazy"><span class="pl"></span></div><h3>'+w.t+'</h3><p>'+w.g+(w.r?' · raw vs edited':'')+'</p>';b.onclick=function(){open(w)};g.appendChild(b)});
+W.forEach(function(w,i){var b=document.createElement('button');b.className='card rv';b.innerHTML='<div class="th"><img src="'+w.p+'" alt="" loading="lazy"><span class="pl"></span></div><h3>'+w.t+'</h3>'+(w.r?'<p>Raw vs edited</p>':'');b.onclick=function(){open(w)};g.appendChild(b)});
 var d=document.getElementById('dlg'),fr=document.getElementById('fr');
 function untog(){var o=d.querySelector('.tog');if(o)o.remove()}
 function open(w){fr.innerHTML='';untog();var v=document.createElement('video');v.controls=true;v.autoplay=true;v.playsInline=true;v.src=w.e;fr.appendChild(v);
